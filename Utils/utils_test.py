@@ -49,7 +49,7 @@ class TestbedDataset(InMemoryDataset):
             labels = y[i]
             c_size, features, edge_index = smile_graph[smiles]
             lens=id[smiles]
-            GCNData = DATA.Data(x=torch.Tensor(features),
+            PerMolSyner = DATA.Data(x=torch.Tensor(features),
                                 edge_index=torch.LongTensor(edge_index).transpose(1, 0),
                                 y=torch.Tensor([labels]))
             smile_f=smile_features[smiles]
@@ -57,11 +57,11 @@ class TestbedDataset(InMemoryDataset):
             new_cell = []
             for n in cell:
                 new_cell.append(float(n))
-            GCNData.cell = torch.FloatTensor([new_cell])
-            GCNData.smile2vec_feature = torch.FloatTensor(smile_f)
-            GCNData.__setitem__('c_size', torch.LongTensor([c_size]))
-            GCNData.lens=torch.IntTensor([lens])
-            data_list.append(GCNData)
+            PerMolSyner.cell = torch.FloatTensor([new_cell])
+            PerMolSyner.smile2vec_feature = torch.FloatTensor(smile_f)
+            PerMolSyner.__setitem__('c_size', torch.LongTensor([c_size]))
+            PerMolSyner.lens=torch.IntTensor([lens])
+            data_list.append(PerMolSyner)
         if self.pre_filter is not None:
             data_list = [data for data in data_list if self.pre_filter(data)]
         if self.pre_transform is not None:
