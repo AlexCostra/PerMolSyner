@@ -11,7 +11,7 @@ datasets, whereby ablation experiments further confirm the effectiveness of our 
 ## Model Architecture
 A novel semantic-enhanced DPP representation learning method with a negative training strategy entitled SENT-DTI is proposed to identify potential DTIs. As depicted in the below figure, SENT-DTI comprises three main modules: interactive feature augmentation module, independent feature extraction module, and false-negative DPP association identification module.
 
-![image](https://github.com/AlexCostra/SENT-DTI/blob/main/Utils/model_picture.png)
+![image](https://github.com/AlexCostra/PerMolSyner/upload/main/Utils/Fig1.png)
 
 ## Requirements
 - Python >= 3.6
