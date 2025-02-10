@@ -300,7 +300,7 @@ class PerMolSyner(torch.nn.Module):
         original_cell_vector = cell_vector
         cell_vector = self.reduction(cell_vector)
         decoder_cell_vector=self.decoder(cell_vector)
-        ############################ Adapative feature fusion #####################################
+        ############################ Adapative feature fusion #######################################
         x1_f1 = self.map1(x1)
         x1_f2 = self.map2(x1)
         x2_f1 = self.map1(x2)
