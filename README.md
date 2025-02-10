@@ -17,29 +17,16 @@ Figure 1: The overall architecture of PerMolSyner, which consists of two critica
 
 ## Folder Specification
 
-- **main.py:** Please excuate this file.
-- **Model:** It includes our model (model.py).
-- **Data** This file contain three types of data. i.e., proteinSquence.txt is a file that includes protein sequences, smiles.txt is a file of drug sequences and mat_drug_protein_drug.txt is a network file of Drug-Target network.
-- **Utils:**  This file is responsible for processing sequence data including the generation of Drug-Protein Pair Network(DPPN) (generate_dataset_cli.py) , transformation of drug SMILE into molecule graph (data_preprocess.py), transformation of protein sequence into real-valued matrix (prot2vec.npy), transformation of drug SMILE into real-valued matrix (smi2vec.npy) and transformation of 3-g sequence into real-valued vector with word2vec_30.model.
+- **main_PerMolSyner.py:** Please excuate this file to run our model.
+- **Model:** It includes our model of PerMolSyner (model.py).
+- **Data** This folder includes samples.csv containing four rows of data. i.e., molecule SMILES Strings of Drug A, molecule SMILES Strings of Drug B, cell line ID and their synergistic relationships(1:synergistic relation and 0: non-synergistic relation).
+- **Utils:**  This folder includes utils_test.py responsible for processing sequence data of drug moleculers and samples of synergistic drug combinations.
 ## Run the Code
-#### (1) Sequence Preprocessing
-  Please use proteinSquence.txt and smiles.txt to input into data_preprocess.py for precessing sequence data.
-```bash
-cd SENT-DTI/Utils
-python data_preprocess .py 
-``` 
-#### (2) DPP Network generation
-  Please use  mat_drug_protein_drug.txt  as input of generate_dataset_cli.py for generating DPP network.
-```bash
-cd SENT-DTI/Utils
-python generate_dataset_cli.py
-``` 
-#### (3) DTI prediction
-  To excecute SENT-DTI, please run the following command. The contents include model train and model test:
+  To excecute PerMolSyner, please run the following command. The contents include model train and model test:
 
 ```bash
-cd SENT-DTI
-python main.py
+cd PerMolSyner
+python main_PerMolSyner.py
 ``` 
 ## Acknowledgement
 We sincerely thank Weiyu Shi for providing code. Please contact us with Email: standyshi@qq.com
