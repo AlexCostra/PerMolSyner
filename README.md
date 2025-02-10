@@ -1,15 +1,13 @@
 <h1 align="center">Synergistic Drug Combination Prediction with Interactive Permutation—Agnostic Molecular Representation Learning</h1>
 
-The code is from our new paper in the field of Drug-Target prediction., entitled'' SENT-DTI: Semantic-Enhanced Drug-Target Interaction Prediction with Negative Training Strategy ''. SENT-DTI is a powerful tool designed for DTI prediction task, which leverages advanced algorithms to improve efficiency and accuracy.
+The code is from our new paper in the field of synergistic drug combination prediction, entitled'' Synergistic Drug Combination Prediction with Interactive
+Permutation—Agnostic Molecular Representation Learning (PerMolSyner) ''. PerMolSyner is a powerful tool designed for drug combination prediction task, which leverages advanced algorithms to improve efficiency and accuracy.
 ## Highlight
--  As for the lack of semantic interactive information on Drug Protein Pair Network (DPPN), we design a novel feature fuse method on DPPN. Specifically, It extracts Drug Protein Pair (DPP) interactive semantic features through a bidirectional encoder-decoder based on self-attention. These features can be further incorporated into DPPN and used to learn augmented DPP feature representation through a semantic-aware GCN on the semantic DPPN.
- -  We design a simple yet effective Negative Training (NT) strategy for false-negative drug-target association issue to adaptively optimize the probability distribution of positive DPPs through a binary association-specific negative loss function and identify false-negative DPP associations by a Unified High-Confidence false-negative DPP association filtering (UHCF) mechanism. To our knowledge, this is the first work to mitigate DPP false-negative association for the DTI prediction task.
-
- -  Our experimental results show that SENT-DTI outperforms SOTA baselines on benchmark
-datasets, whereby ablation experiments further confirm the effectiveness of our two new techniques, i.e. Semantic DPPN representation learning and FNDNT.
-
+-  To our knowledge, this is the first work to consider the consistency issue in synergistic drug prediction methods, whereby interactive representation learning methods along a single-direction in drug combinations cannot encode multi-scale molecule-inter interaction semantics and lead to inconsistent predictions under different orders of pairs of drugs-cell lines.
+ -  We design a novel synergistic drug prediction model entitled PerMolSyner, which introduces a bidirectional attention block to comprehensively model intricate interactive semantics with different interaction orders while integrating pretrain-finetune mechanism to learn consistent feature representations of the same drug-drug-cell line on different input orders, thereby enhancing the model’s generalizability.
+ - Extensive experiments on three benchmark datasets demonstrate PerMolSyner’s superiority over SOTA base-lines.
 ## Model Architecture
-A novel semantic-enhanced DPP representation learning method with a negative training strategy entitled SENT-DTI is proposed to identify potential DTIs. As depicted in the below figure, SENT-DTI comprises three main modules: interactive feature augmentation module, independent feature extraction module, and false-negative DPP association identification module.
+Figure 1: The overall architecture of PerMolSyner, which consists of two critical modules, i.e., (a) a molecule interaction representation module and (b) a pretrain-fineture module. The bidirectional attention block in the molecule interaction representation module comprises an encoder-decoder structure with different directions, i.e., the Drug A-drug B direction and the Drug B-drug A direction, as illustrated in Figure 1(c).
 
 ![image](https://github.com/AlexCostra/PerMolSyner/blob/main/Utils/Fig1.png)
 
