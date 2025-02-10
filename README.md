@@ -7,7 +7,7 @@ Permutation—Agnostic Molecular Representation Learning (PerMolSyner) ''. PerMo
  -  We design a novel synergistic drug prediction model entitled PerMolSyner, which introduces a bidirectional attention block to comprehensively model intricate interactive semantics with different interaction orders while integrating pretrain-finetune mechanism to learn consistent feature representations of the same drug-drug-cell line on different input orders, thereby enhancing the model’s generalizability.
  - Extensive experiments on three benchmark datasets demonstrate PerMolSyner’s superiority over SOTA base-lines.
 ## Model Architecture
-Figure 1: The overall architecture of PerMolSyner, which consists of two critical modules, i.e., (a) a molecule interaction representation module and (b) a pretrain-fineture module. The bidirectional attention block in the molecule interaction representation module comprises an encoder-decoder structure with different directions, i.e., the Drug A-drug B direction and the Drug B-drug A direction, as illustrated in Figure 1(c).
+Figure 1: The overall architecture of PerMolSyner, which consists of two critical modules, i.e., (a) a molecule interaction representation module and (b) a pretrain-finetune module. The bidirectional attention block in the molecule interaction representation module comprises an encoder-decoder structure with different directions, i.e., the Drug A-drug B direction and the Drug B-drug A direction, as illustrated in Figure 1(c).
 
 ![image](https://github.com/AlexCostra/PerMolSyner/blob/main/Utils/Fig1.png)
 
