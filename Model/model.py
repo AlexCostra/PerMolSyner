@@ -206,11 +206,12 @@ class TextCNN(nn.Module):
         return self.conv(features)
 
 class PerMolSyner(torch.nn.Module):
-    def __init__(self, device,hid_dim=128,n_layers=3, kernel_size=9,n_heads=8, pf_dim=256,n_output=2,
-                num_features_xd=78, num_features_xt=954, output_dim=128, dropout=0.2):
+    def __init__(self, device,hid_dim=128,n_layers=3, kernel_size=9,n_heads=5, pf_dim=256,n_output=2,
+                num_features_xd=78, num_features_xt=954, output_dim=128, dropout=0.5):
 
         super(PerMolSyner, self).__init__()
         self.relu = nn.ReLU()
+        self.sigmoid=nn.Sigmoid()
         self.dropout = nn.Dropout(dropout)
         self.n_output = n_output
         self.drug1_conv1 = GCNConv(num_features_xd, num_features_xd)
@@ -308,8 +309,8 @@ class PerMolSyner(torch.nn.Module):
         cell_vector_f1 = self.map1(cell_vector)
         cell_vector_f2 = self.map2(cell_vector)
         interaction_d_d1_f2 = self.map2(interaction_d_d1)
-        xc_f1 = x1_f1+x2_f1+interaction_d_d_f1+cell_vector_f1
-        xc_f2 = x1_f2 + x2_f2 + interaction_d_d1_f2 + cell_vector_f2
+        xc_f1 = self.sigmoid(x1_f1+x2_f1+interaction_d_d_f1+cell_vector_f1)
+        xc_f2 = self.sigmoid(x1_f2 + x2_f2 + interaction_d_d1_f2 + cell_vector_f2)
         # Inference on two directions
         xc = self.fc1(xc_f1)
         xc = self.relu(xc)
@@ -318,7 +319,7 @@ class PerMolSyner(torch.nn.Module):
         xc = self.relu(xc)
         xc = self.dropout(xc)
         out = self.out(xc)
-
+        out=self.sigmoid(out)
         xc = self.fc1(xc_f2)
         xc = self.relu(xc)
         xc = self.dropout(xc)
@@ -326,4 +327,5 @@ class PerMolSyner(torch.nn.Module):
         xc = self.relu(xc)
         xc = self.dropout(xc)
         out1 = self.out(xc)
+        out1=self.sigmoid(out1)
         return out,original_cell_vector,decoder_cell_vector,xc_f1,xc_f2,out1
