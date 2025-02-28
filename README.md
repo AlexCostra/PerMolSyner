@@ -1,4 +1,4 @@
-<h1 align="center">协同药物预测方法/h1>
+
 ## Requirements
 - Python >= 3.6
 - Pytorch >= 1.7
