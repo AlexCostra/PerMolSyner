@@ -1,16 +1,4 @@
-<h1 align="center">Synergistic Drug Combination Prediction with Interactive Permutation—Agnostic Molecular Representation Learning</h1>
-
-The code is from our new paper in the field of synergistic drug combination prediction, entitled'' Synergistic Drug Combination Prediction with Interactive
-Permutation—Agnostic Molecular Representation Learning (PerMolSyner) ''. PerMolSyner is a powerful tool designed for drug combination prediction task, which leverages advanced algorithms to improve efficiency and accuracy.
-## Highlight
--  To our knowledge, this is the first work to consider the consistency issue in synergistic drug prediction methods, whereby interactive representation learning methods along a single-direction in drug combinations cannot encode multi-scale molecule-inter interaction semantics and lead to inconsistent predictions under different orders of pairs of drugs-cell lines.
- -  We design a novel synergistic drug prediction model entitled PerMolSyner, which introduces a bidirectional attention block to comprehensively model intricate interactive semantics with different interaction orders while integrating pretrain-finetune mechanism to learn consistent feature representations of the same drug-drug-cell line on different input orders, thereby enhancing the model’s generalizability.
- - Extensive experiments on three benchmark datasets demonstrate PerMolSyner’s superiority over SOTA base-lines.
-## Model Architecture
-Figure 1: The overall architecture of PerMolSyner, which consists of two critical modules, i.e., (a) a molecule interaction representation module and (b) a pretrain-finetune module. The bidirectional attention block in the molecule interaction representation module comprises an encoder-decoder structure with different directions, i.e., the Drug A-drug B direction and the Drug B-drug A direction, as illustrated in Figure 1(c).
-
-![image](https://github.com/AlexCostra/PerMolSyner/blob/main/Utils/Fig1.png)
-
+<h1 align="center">协同药物预测方法/h1>
 ## Requirements
 - Python >= 3.6
 - Pytorch >= 1.7
